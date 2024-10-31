@@ -2,7 +2,7 @@
 ## Next, let's load the human evaluation data
 
 
-TG_human = load_dataset("skg/toxigen-data", name="annotations", token="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")
+TG_human = load_dataset("skg/toxigen-data", name="annotations", token="") #input your token here
 human_eval = pd.DataFrame(TG_human["train"])
 
 print(human_eval.shape)
