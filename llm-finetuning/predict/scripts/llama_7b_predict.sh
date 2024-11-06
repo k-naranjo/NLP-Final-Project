@@ -6,7 +6,7 @@
 #SBATCH --cpus-per-task=8
 #SBATCH -t 72:00:00 # Day-Hour:Minute
 #SBATCH -p gpu
-#SBATCH --gres=gpu:a100:1
+#SBATCH --gres=gpu:3
 #SBATCH --mem-per-cpu=64GB
 
 # --- Task related ---
@@ -66,4 +66,4 @@ end=$(date +%s)
 secs=$((end-start))
 
 printf 'Runtime: %dh:%dm:%ds\n' $((secs/3600)) $((secs%3600/60)) $((secs%60))  
-ln -sf "${FPATH_LOG}" "$(dirname ${FPATH_LOG})/latest.log"
+echo "Finished"
