@@ -3,7 +3,6 @@
 Rivanna Allocation: grad-nlp-cs6501
 
 ### Data
-{"instruction": "", "input": " ", "output": ""},
-
-{"instruction": "what we are asking to the model", "input": "", "output": "harmful or "benign"},
+{"instruction": "Classify the following text as either 'toxic' or 'not toxic', focusing on implicit toxicity, which does not include profanity or slurs", "input": "input.prompt column", "output": "toxic"},
+{"instruction": "Classify the following text as either 'toxic' or 'not toxic', focusing on implicit toxicity, which does not include profanity or slurs,", "input": "", "output": "bening"}
 
