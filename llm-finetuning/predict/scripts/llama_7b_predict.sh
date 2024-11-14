@@ -1,7 +1,7 @@
 #!/bin/bash -l
 
 # --- Resource related ---
-#SBATCH -A cs6501-nlp-24fa
+#SBATCH -A grad-nlp-cs6501
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=8
 #SBATCH -t 72:00:00 # Day-Hour:Minute
@@ -11,7 +11,7 @@
 
 # --- Task related ---
 
-#SBATCH --job-name=llama2_7b_predict_XXX
+#SBATCH --job-name=llama2_7b_predict_Name
 
 #SBATCH --output="/scratch/UVAid/llm-finetuning/lora/logfiles/predict//%x_%j.log" 
 #SBATCH --error="/scratch/UVAid/llm-finetuning/lora/logfiles/predict//%x_%j.err"
@@ -23,14 +23,14 @@ MAX_NEW_TOKENS=300
 EVAL_FILENAME="/scratch/UVAid/llm-finetuning/data/dev.json"
 OUTPUT_FILENAME="/scratch/UVAid/llm-finetuning/lora/logfiles/predict/llama2_7b_${SLURM_JOB_NAME}_${SLURM_JOB_ID}.json"
 DO_SAMPLE=False
-TEMPLATE_NAME="toxigen_predict"
+TEMPLATE_NAME="toxigen_predict_teammate_name"
 MODEL_NAME='meta-llama/Llama-2-7b-hf'
 BEAM_SIZE=1
 BATCH_SIZE=32
 
 
 # ---- env---------
-export ENV_LOCATION="/scratch/UVAid/name_env"
+export ENV_LOCATION="/home/UVAid/name_env"
 export HF_CACHE_LOCATION="/scratch/UVAid/huggingface"
 
 pwd

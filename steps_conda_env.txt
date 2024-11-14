@@ -1,0 +1,12 @@
+module load miniforge
+conda create -n nlproject python=3.12
+conda activate nlproject
+module load cuda cudnn
+pip install -r requirements.txt
+
+##########
+nano requirements.txt
+modify line 
+control o
+enter
+control x
