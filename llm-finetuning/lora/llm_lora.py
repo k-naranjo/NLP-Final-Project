@@ -10,7 +10,7 @@ from datasets import load_dataset
 from tqdm import tqdm
 
 from utils import identify_label, collated
-from icl import ICL_Demos
+#from icl import ICL_Demos
 from prompter import Prompter
 
 
