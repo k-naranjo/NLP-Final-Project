@@ -1,0 +1,8 @@
+{
+    "description": "Template for binary toxicity classification using LLM-Finetuning",
+    "response_split": "### Response:",
+    "instruction": "Your task is to classify text as either 'toxic' or 'not toxic'. Focus on identifying implicit toxicity, bias, and harmful content.\n\n### Instruction:\n{instruction}",
+    "demo_part": "\n\n### Input:\n{input}\n\n### Response:\n{output}",
+    "query_part": "\n\n### Input:\n{input}\n\n### Response:\n"
+}
+
