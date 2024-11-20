@@ -1,6 +1,5 @@
 {
     "description": "Template for toxicity classification",
-
     "prompt_input": "You are a toxicity classifier. Your task is to identify toxic content.\n\n### Instruction:\n{instruction}\n\n### Input:\n{input}\n\n### Response:",
     "response_split": "### Response:"
 }
