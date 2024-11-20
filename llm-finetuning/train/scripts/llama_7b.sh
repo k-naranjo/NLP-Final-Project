@@ -15,8 +15,8 @@
 #SBATCH --error="/scratch/kn3cs/NLP-Final-Project/llm-finetuning/train/logfiles/%x_%j.err"
 
 export FPATH_LOG="/scratch/kn3cs/NLP-Final-Project/llm-finetuning/lora/scripts/${SLURM_JOB_NAME}_${SLURM_JOB_ID}.log"
-export TRAIN_FILE="/scratch_kn3cs/NLP-Final-Project/data/train.json"
-export VAL_FILE="/scratch_kn3cs/NLP-Final-Project/data/val.json"
+export TRAIN_FILE="/scratch/kn3cs/NLP-Final-Project/data/train.json"
+export VAL_FILE="/scratch/kn3cs/NLP-Final-Project/data/val.json"
 export TEMPLATE_NAME="toxigen_karo"
 export MODEL_NAME='meta-llama/Llama-2-7b-hf'
 export FP16=False
