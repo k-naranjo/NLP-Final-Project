@@ -1,7 +1,7 @@
 #!/bin/bash -l
 
 # --- Resource related ---
-#SBATCH -A grad-nlp-cs6501
+#SBATCH -A uvailp-llm
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=8
 #SBATCH -t 72:00:00 # Day-Hour:Minute
@@ -11,25 +11,24 @@
 
 # --- Task related ---
 
-#SBATCH --job-name= "llama2_7b_name_predict"
-#SBATCH --output="/scratch/UVAid/NLP-Final-Project/llm-finetuning/predict/logfiles/%x_%j.log"
-#SBATCH --error="/scratch/UVAid/NLP-Final-Project/llm-finetuning/predict/logfiles/%x_%j.err"
+#SBATCH --job-name="llama2_7b_karo_predict"
+#SBATCH --output="/scratch/kn3cs/NLP-Final-Project/llm-finetuning/predict/logfiles/%x_%j.log" 
+#SBATCH --error="/scratch/kn3cs/NLP-Final-Project/llm-finetuning/train/logfiles/%x_%j.err"
 
-
-LORA_CHECKPOINT_DIR="/scratch/UVAid/NLP-Final-Project/llm-finetuning/llama2_7b/checkpoint-XXX/"
-MAX_NEW_TOKENS=500
-EVAL_FILENAME="/scratch_UVAid/NLP-Final-Project/data/dev.json"
-OUTPUT_FILENAME="/scratch/UVAid/NLP-Final-Project/llm-finetuning/lora/predict/outputs/llama2_7b_${SLURM_JOB_NAME}_${SLURM_JOB_ID}.json"
+LORA_CHECKPOINT_DIR="/scratch/kn3cs/NLP-Final-Project/llm-finetuning/outputs/llama2_7b_karo_test/_66999404/checkpoint-5540/"
+MAX_NEW_TOKENS=600
+EVAL_FILENAME="/scratch/kn3cs/NLP-Final-Project/data/dev.json"
+OUTPUT_FILENAME="/scratch/kn3cs/NLP-Final-Project/llm-finetuning/predict/outputs/llama2_7b_${SLURM_JOB_NAME}_${SLURM_JOB_ID}.json"
 DO_SAMPLE=False
-TEMPLATE_NAME="toxigen_predict_teammate_name"
+TEMPLATE_NAME="toxigen_karo"
 MODEL_NAME='meta-llama/Llama-2-7b-hf'
 BEAM_SIZE=1
 BATCH_SIZE=32
 
 
 # ---- env---------
-export ENV_LOCATION="/home/UVAid/name_env"
-export HF_CACHE_LOCATION="/scratch/UVAid/huggingface"
+export ENV_LOCATION="/home/kn3cs/nlproject"
+export HF_CACHE_LOCATION="/scratch/kn3cs/huggingface"
 
 pwd
 
@@ -45,10 +44,9 @@ export TRANSFORMERS_CACHE="${HF_CACHE_LOCATION}/hub"
 conda activate ${ENV_LOCATION}
 echo "which python -> $(which python)"
 start=$(date +%s)
-
 python -c "import torch.cuda; print('torch.cuda.is_available():', torch.cuda.is_available())"
 
-python /home/UVAid/scratch_UVAid//NLP-Final-Project/llm-finetuning/lora/predict.py \
+python /scratch/kn3cs/NLP-Final-Project/llm-finetuning/lora/predict.py \
     --eval_filename $EVAL_FILENAME \
     --base_model_name $MODEL_NAME \
     --output_filename $OUTPUT_FILENAME \
