@@ -13,11 +13,11 @@
 
 #SBATCH --job-name="llama2_7b_karo_predict"
 #SBATCH --output="/scratch/kn3cs/NLP-Final-Project/llm-finetuning/predict/logfiles/%x_%j.log" 
-#SBATCH --error="/scratch/kn3cs/NLP-Final-Project/llm-finetuning/train/logfiles/%x_%j.err"
+#SBATCH --error="/scratch/kn3cs/NLP-Final-Project/llm-finetuning/predict/logfiles/%x_%j.err"
 
 LORA_CHECKPOINT_DIR="/scratch/kn3cs/NLP-Final-Project/llm-finetuning/outputs/llama2_7b_karo_test/_66999404/checkpoint-5540/"
-MAX_NEW_TOKENS=600
-EVAL_FILENAME="/scratch/kn3cs/NLP-Final-Project/data/dev.json"
+MAX_NEW_TOKENS=500
+EVAL_FILENAME="/scratch/kn3cs/NLP-Final-Project/data/val.json"
 OUTPUT_FILENAME="/scratch/kn3cs/NLP-Final-Project/llm-finetuning/predict/outputs/llama2_7b_${SLURM_JOB_NAME}_${SLURM_JOB_ID}.json"
 DO_SAMPLE=False
 TEMPLATE_NAME="toxigen_karo"
