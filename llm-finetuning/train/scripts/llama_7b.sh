@@ -1,7 +1,7 @@
 #!/bin/bash -l
 
 # --- Resource related ---
-#SBATCH -A grad-nlp-cs6501
+#SBATCH -A uvailp-llm
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=8
 #SBATCH -t 72:00:00 # Day-Hour:Minute
