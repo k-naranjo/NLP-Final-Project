@@ -24,8 +24,12 @@ class Prompter(object):
             assert template_name == "kshot"
 
         #file_name = osp.join("/scratch/UVAid/llm-finetuning/", f"{template_name}.json")
-        file_name = osp.join("/scratch/kn3cs/NLP-Final-Project/llm-finetuning/lora/templates/", f"{template_name}.json")
-        
+        file_name = osp.join("/scratch/kn3cs/NLP-Final-Project/llm-finetuning/templates/", f"{template_name}.json")
+        #file_name = osp.join(os.getcwd(), f"{template_name}.json")
+        #if not osp.exists(file_name):
+        #    file_name = osp.join("/sfs/weka/scratch/kn3cs/NLP-Final-Project/llm-finetuning/", f"{template_name}.json")
+
+
         if not osp.exists(file_name):
             raise ValueError(f"Can't read {file_name}")
 
