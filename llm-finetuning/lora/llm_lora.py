@@ -80,13 +80,15 @@ class LLM_Lora(object):
               num_epochs: int = 3,
               logging_steps: int = 5,
               warmup_steps: int = 0,
+              #learning_rate: float = 3e-4,
               learning_rate: float = 3e-4,
               # Validation setup
               val_steps: int = 20,
               val_set_size: int = 128,
               val_batch_size: int = 32,
               # LORA
-              lora_r: int = 8,
+              #lora_r: int = 8,
+              lora_r: int = 16,
               lora_alpha: int = 16,
               lora_dropout: float = 0.05,
               # Tokenizer
@@ -165,10 +167,8 @@ class LLM_Lora(object):
             print(f"Loaded {len(val_data)} examples for val data.")
         elif val_file.endswith(".json") or val_file.endswith(".jsonl"):
             # Load the val data from val_file if it is specified
-            ## WE WANT THE TEST FILE: val_file: str = "/scratch/kn3cs/legalnlp/llm-finetuning/lora/data/legal2/binary_es_t/test.json",
             print(f"Loading val data from {val_file}")
-            # val_data = load_dataset("json", data_files=val_file, split="train")
-            # val_file = "/scratch/kn3cs/legalnlp/llm-finetuning/lora/data/legal2/binary_es_t/test.json"
+        
             print(">>> val_file is", val_file)
             val_data = load_dataset("json", data_files=val_file, split="train")
             

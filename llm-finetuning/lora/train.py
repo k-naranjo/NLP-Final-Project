@@ -1,7 +1,6 @@
 import fire
 from llama_lora import Llama_Lora
 
-
 import logging
 
 STR2MODELCLASS = {
@@ -17,8 +16,10 @@ def main(
         val_file: str = "",
         val_set_size: int = 128,
         prompt_template_name: str = "base",
+        #learning_rate: float = 3e-6,
         learning_rate: float = 3e-5,
-        num_epochs: int = 2,
+        #num_epochs: int = 2,
+        num_epochs: int = 10,
         fp16: bool = True,
 ):
     model_class = [v for k, v in STR2MODELCLASS.items() if k in base_model_name]
